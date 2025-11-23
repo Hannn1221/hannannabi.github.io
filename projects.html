@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects</title>
+  <title>Hannan – Projects</title>
   <link rel="stylesheet" href="style.css"/>
-
   <style>
     :root {
       --bg-color: #121212;
       --text-color: #ffffff;
-      --accent-color: #00c3ff;
+      --accent-color: #ffffff;
     }
 
     body {
@@ -22,6 +21,7 @@
       overflow-x: hidden;
     }
 
+    /* NAVBAR — SAME AS EXPERIENCE PAGE */
     header nav {
       display: flex;
       justify-content: space-between;
@@ -32,7 +32,7 @@
     header nav h1 a {
       font-family: monospace;
       font-size: 1.2rem;
-      color: var(--text-color);
+      color: var(--accent-color);
       text-decoration: none;
       letter-spacing: 0.15em;
     }
@@ -41,6 +41,7 @@
       display: flex;
       gap: 2rem;
       list-style: none;
+      margin: 0 auto;
     }
 
     .nav-links a {
@@ -49,32 +50,57 @@
       font-weight: 500;
     }
 
+    .nav-links a.active {
+      opacity: 0.6;
+    }
+
     main {
-      max-width: 650px;
-      margin: auto;
+      position: relative;
+      z-index: 2;
       padding: 2rem;
-      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    h2 {
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
       text-align: center;
-      margin-bottom: 2rem;
+      color: var(--accent-color);
     }
 
-    /* MINIMAL PROJECT LIST */
+    section p {
+      font-size: 1rem;
+    }
+
+    /* global links (non-navbar) */
+    a {
+      color: var(--accent-color);
+      text-decoration: underline;
+    }
+
+    /* PROJECT LIST – MINIMAL */
+    .projects-list {
+      max-width: 650px;
+      margin: 0 auto;
+      margin-top: 1.5rem;
+    }
+
     .project-item {
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.5rem;
     }
 
     .project-item a {
-      font-size: 1.25rem;
-      color: var(--accent-color);
-      text-decoration: none;
+      text-decoration: none;   /* override global underline */
       font-weight: 600;
     }
 
+    .project-item a:hover {
+      opacity: 0.7;
+    }
+
     .project-item p {
-      margin: 0.3rem 0 0.5rem 0;
+      margin: 0.25rem 0 0;
       color: #ccc;
       font-size: 0.95rem;
       line-height: 1.5;
@@ -82,7 +108,8 @@
 
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 1rem;
+      font-size: 0.9rem;
       color: #777;
     }
 
@@ -99,68 +126,64 @@
     }
   </style>
 </head>
-
 <body>
+  <div class="cursor-bg" id="cursor-bg"></div>
 
-<div class="cursor-bg" id="cursor-bg"></div>
+  <header>
+    <nav>
+      <h1><a href="about.html">HANNAN</a></h1>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="resume.html">Experience</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <nav class="top-center-nav">
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a class="active" href="projects.html">Projects</a></li>
-      <li><a href="resume.html">Experience</a></li>
-    </ul>
-  </nav>
-</header>
+  <main>
+    <section>
+      <h2>Projects</h2>
 
+      <div class="projects-list">
+        <div class="project-item">
+          <a href="cip_aud_usd.html">AUD/USD CIP Model</a>
+          <p>Interest parity analysis using spot–forward rates and yield spreads.</p>
+        </div>
 
-<main>
-  <h2>Projects</h2>
+        <div class="project-item">
+          <a href="equity_risk.html">Equity Risk Model</a>
+          <p>OLS + Newey–West beta estimation for systematic market sensitivity.</p>
+        </div>
 
-  <div class="projects-list">
+        <div class="project-item">
+          <a href="macro_ml_pipeline.html">Macroeconomic &amp; Data Science Pipeline</a>
+          <p>Econometrics + ML forecasting workflow for macro time series.</p>
+        </div>
 
-    <div class="project-item">
-      <a href="cip_aud_usd.html">AUD/USD CIP Model</a>
-      <p>Interest parity analysis using spot-forward rates and yield spreads.</p>
-    </div>
+        <div class="project-item">
+          <a href="geostartup_analytics.html">GeoStartup Analytics</a>
+          <p>Mapping global startup ecosystems using clustering and folium.</p>
+        </div>
 
-    <div class="project-item">
-      <a href="equity_risk.html">Equity Risk Model</a>
-      <p>OLS + Newey–West beta estimation for systematic risk.</p>
-    </div>
+        <div class="project-item">
+          <a href="global_wellbeing.html">Global Wellbeing Insights</a>
+          <p>Life expectancy, income, and pollution relationships across countries.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <div class="project-item">
-      <a href="macro_ml_pipeline.html">Macroeconomic Pipeline</a>
-      <p>Econometrics + ML forecasting workflow for macro time series.</p>
-    </div>
+  <footer>
+    <p>&copy; 2025 Hannan Nabi</p>
+  </footer>
 
-    <div class="project-item">
-      <a href="geostartup_analytics.html">GeoStartup Analytics</a>
-      <p>Mapping global startup ecosystems using clustering and folium.</p>
-    </div>
-
-    <div class="project-item">
-      <a href="global_wellbeing.html">Global Wellbeing Insights</a>
-      <p>Life expectancy, income, and pollution relationships across countries.</p>
-    </div>
-
-  </div>
-
-</main>
-
-<footer>
-  <p>&copy; 2025 Hannan Nabi</p>
-</footer>
-
-<script>
-  const cursorBg = document.getElementById('cursor-bg');
-  document.addEventListener('mousemove', (e) => {
-    cursorBg.style.background =
-      `radial-gradient(circle at ${e.clientX}px ${e.clientY}px,
-      rgba(255,255,255,0.07), transparent 60%)`;
-  });
-</script>
-
+  <script>
+    const cursorBg = document.getElementById('cursor-bg');
+    document.addEventListener('mousemove', (e) => {
+      cursorBg.style.background =
+        `radial-gradient(circle at ${e.clientX}px ${e.clientY}px,
+        rgba(255,255,255,0.07), transparent 60%)`;
+    });
+  </script>
 </body>
 </html>
