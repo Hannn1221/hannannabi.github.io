@@ -1,16 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AUD/USD CIP Model</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --accent-color: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    header nav h1 a {
+      font-family: monospace;
+      font-size: 1.2rem;
+      color: var(--accent-color);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #777;
+    }
+
+    .cursor-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.07), transparent 60%);
+      pointer-events: none;
+      z-index: 1;
+      transition: background 0.2s ease-out;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="cursor-bg" id="cursor-bg"></div>
+
 <header>
   <nav>
-    <h1><a href="/about.html">HANNAN</a></h1>
+    <h1><a href="about.html">HANNAN</a></h1>
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html" class="active">Projects</a></li>
@@ -19,18 +90,19 @@
   </nav>
 </header>
 
-<main style="max-width:900px;margin:auto;padding:2rem;">
+<main>
   <h2>AUD/USD Covered Interest Parity (CIP) Model</h2>
 
   <p>
-    This project analyses whether AUD/USD exchange-rate movements follow the Covered Interest Parity condition.
-    Using 10 years of monthly FRED, OECD, and Yahoo Finance data, I computed theoretical forward rates and compared them
-    to actual forward prices to identify basis spreads and market frictions.
+    This project examines whether AUD/USD movements follow the Covered Interest Parity condition using 
+    10 years of monthly FRED, OECD, and Yahoo Finance data. I compute theoretical forward rates, compare 
+    them to market forward quotes, and analyse deviations such as basis spreads and funding frictions.
   </p>
 
   <p>
-    The model highlights when CIP holds tightly and when liquidity divergences or funding pressures cause deviations.
-    This type of analysis is used in FX strategy and macro-trading teams to evaluate arbitrage boundaries.
+    The model demonstrates when CIP holds tightly and when market stress, liquidity shortages, or 
+    hedging demand lead to persistent gaps. This type of diagnostic is used within macro-trading and 
+    FX strategy teams to map arbitrage boundaries and funding conditions.
   </p>
 
   <p style="margin-top:2rem;">
@@ -43,5 +115,13 @@
 <footer>
   <p>&copy; 2025 Hannan Nabi</p>
 </footer>
+
+<script>
+  const cursorBg = document.getElementById('cursor-bg');
+  document.addEventListener('mousemove', (e) => {
+    cursorBg.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,0.07), transparent 60%)`;
+  });
+</script>
+
 </body>
 </html>
