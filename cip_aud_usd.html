@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AUD/USD Covered Interest Parity (CIP) Model</title>
+  <title>AUD/USD CIP Model</title>
 
+  <!-- IMPORT GLOBAL STYLE FROM PARENT FOLDER -->
   <link rel="stylesheet" href="../style.css"/>
 
   <style>
@@ -19,6 +20,8 @@
 </head>
 
 <body>
+  <!-- Cursor background (your global effect) -->
+  <div class="cursor-bg" id="cursor-bg"></div>
 
 <header>
   <nav>
@@ -31,35 +34,32 @@
   </nav>
 </header>
 
-<main style="max-width:800px;margin:auto;padding:2rem;">
+<main style="max-width:900px;margin:auto;padding:2rem;">
   <h2>AUD/USD Covered Interest Parity (CIP) Model</h2>
 
   <p>
-    This project evaluates whether the AUD/USD exchange rate follows the Covered Interest Parity condition.
-    Using 10 years of monthly data from FRED, OECD, and Yahoo Finance, I compute theoretical forward rates,
-    compare them to actual market forward quotes, and measure CIP deviations such as basis spreads.
+    This project evaluates whether the AUD/USD exchange rate follows Covered Interest Parity using 
+    a decade of US–Australia macro and financial market data. I construct theoretical forward rates,
+    compare them to actual forward quotes, and measure deviations such as basis spreads, liquidity gaps,
+    and funding stress.
   </p>
 
   <p>
-    The analysis shows periods where CIP holds very tightly—typically during stable funding environments—
-    and periods where deviations widen due to liquidity stress, hedging pressure, or capital flow constraints.
-    These diagnostics are widely used by macro–trading desks and FX strategy teams to identify arbitrage
-    boundaries, measure funding pressures, and map market inefficiencies.
+    The notebook below contains the full modelling workflow — data cleaning, FRED/OECD imports, 
+    yield curve alignment, forward-rate construction, and evaluation against market forwards.
   </p>
 
-  <h3 style="margin-top:3rem;">Notebook</h3>
-
-  <!-- ⭐ Embed your notebook here -->
-  <!-- Replace CIP_AUD_USD.html with the file you upload to your repo -->
+  <!-- NOTEBOOK EMBED -->
   <iframe src="CIP_AUD_USD.html"></iframe>
 
+  <!-- DOWNLOAD LINK -->
   <p style="margin-top:1.5rem;">
     <a href="CIP_AUD_USD.ipynb" download>📄 Download Notebook (.ipynb)</a>
   </p>
 
   <p style="margin-top:2rem;">
     <a href="https://github.com/Hannn1221/fin-models" target="_blank">
-      🔗 View Full Project on GitHub
+      🔗 View Full Code on GitHub
     </a>
   </p>
 </main>
@@ -67,6 +67,14 @@
 <footer>
   <p>&copy; 2025 Hannan Nabi</p>
 </footer>
+
+<script>
+  const cursorBg = document.getElementById('cursor-bg');
+  document.addEventListener('mousemove', (e) => {
+    cursorBg.style.background =
+      `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,0.07), transparent 60%)`;
+  });
+</script>
 
 </body>
 </html>
