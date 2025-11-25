@@ -3,123 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AUD/USD CIP Model</title>
+  <title>AUD/USD Covered Interest Parity (CIP) Model</title>
 
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="../style.css"/>
 
   <style>
-    :root {
-      --bg-color: #121212;
-      --text-color: #ffffff;
-      --accent-color: #ffffff;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'Segoe UI', sans-serif;
-      overflow-x: hidden;
-    }
-
-    header nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-    }
-
-    header nav h1 a {
-      font-family: monospace;
-      font-size: 1.2rem;
-      color: var(--accent-color);
-      text-decoration: none;
-      letter-spacing: 0.15em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    main {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #777;
-    }
-
-    .cursor-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.07), transparent 60%);
-      pointer-events: none;
-      z-index: 1;
-      transition: background 0.2s ease-out;
+    iframe {
+      width: 100%;
+      height: 900px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 2rem;
     }
   </style>
 </head>
 
 <body>
-  <div class="cursor-bg" id="cursor-bg"></div>
 
 <header>
   <nav>
-    <h1><a href="about.html">HANNAN</a></h1>
+    <h1><a href="../about.html">HANNAN</a></h1>
     <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="resume.html" class="active">Experience</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../resume.html">Experience</a></li>
     </ul>
   </nav>
 </header>
 
-
-<main>
+<main style="max-width:800px;margin:auto;padding:2rem;">
   <h2>AUD/USD Covered Interest Parity (CIP) Model</h2>
 
   <p>
-    This project examines whether AUD/USD movements follow the Covered Interest Parity condition using 
-    10 years of monthly FRED, OECD, and Yahoo Finance data. I compute theoretical forward rates, compare 
-    them to market forward quotes, and analyse deviations such as basis spreads and funding frictions.
+    This project evaluates whether the AUD/USD exchange rate follows the Covered Interest Parity condition.
+    Using 10 years of monthly data from FRED, OECD, and Yahoo Finance, I compute theoretical forward rates,
+    compare them to actual market forward quotes, and measure CIP deviations such as basis spreads.
   </p>
 
   <p>
-    The model demonstrates when CIP holds tightly and when market stress, liquidity shortages, or 
-    hedging demand lead to persistent gaps. This type of diagnostic is used within macro-trading and 
-    FX strategy teams to map arbitrage boundaries and funding conditions.
+    The analysis shows periods where CIP holds very tightly—typically during stable funding environments—
+    and periods where deviations widen due to liquidity stress, hedging pressure, or capital flow constraints.
+    These diagnostics are widely used by macro–trading desks and FX strategy teams to identify arbitrage
+    boundaries, measure funding pressures, and map market inefficiencies.
   </p>
 
-  <!-- ⭐ EMBED NOTEBOOK HERE -->
-  <!-- Replace CIP_notebook.html with YOUR generated HTML notebook -->
   <h3 style="margin-top:3rem;">Notebook</h3>
-  <iframe src="notebooks/CIP_notebook.html"></iframe>
 
-  <!-- ⭐ DOWNLOAD LINKS -->
+  <!-- ⭐ Embed your notebook here -->
+  <!-- Replace CIP_AUD_USD.html with the file you upload to your repo -->
+  <iframe src="CIP_AUD_USD.html"></iframe>
+
   <p style="margin-top:1.5rem;">
-    <a href="notebooks/CIP_notebook.ipynb" download>📄 Download Notebook (.ipynb)</a> |
-    <a href="scripts/cip_model.py" download>🧩 Download Script (.py)</a>
+    <a href="CIP_AUD_USD.ipynb" download>📄 Download Notebook (.ipynb)</a>
   </p>
 
   <p style="margin-top:2rem;">
     <a href="https://github.com/Hannn1221/fin-models" target="_blank">
-      🔗 View the Full Project on GitHub
+      🔗 View Full Project on GitHub
     </a>
   </p>
 </main>
@@ -127,13 +67,6 @@
 <footer>
   <p>&copy; 2025 Hannan Nabi</p>
 </footer>
-
-<script>
-  const cursorBg = document.getElementById('cursor-bg');
-  document.addEventListener('mousemove', (e) => {
-    cursorBg.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,0.07), transparent 60%)`;
-  });
-</script>
 
 </body>
 </html>
