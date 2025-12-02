@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GeoStartup Analytics</title>
@@ -95,14 +100,30 @@
   <h2>GeoStartup Analytics</h2>
 
   <p>
-    This geospatial analysis uses Folium mapping, clustering, and geo-visualization to explore global startup activity.
-    It identifies innovation hotspots by combining funding data with geographic coordinates and K-Means clustering.
+    This project analyzes startup valuation data using basic regression models 
+    and interactive geospatial visualization. The workflow includes cleaning 
+    numeric fields, estimating valuation using linear regression and random 
+    forest models, computing feature importances, and evaluating predictive 
+    accuracy with R² and RMSE.
+    The dataset is also mapped using Folium: countries are assigned by region, 
+    coordinates are merged, and startups are displayed on an interactive world 
+    map with marker clustering and a geographic heatmap. Circle marker sizes 
+    scale with valuation, and industries are color-coded to show geographic 
+    and sector patterns.
   </p>
 
-  <p>
-    The project demonstrates how analysts use spatial data to understand regional entrepreneurship patterns and
-    ecosystem strengths, highlighting hubs with strong investment inflows and emerging innovation clusters.
-  </p>
+<h2>Source Code</h2>
+
+<pre><code id="pycode" class="language-python"></code></pre>
+
+<script>
+fetch("geostartup_analytics.py")   
+  .then(r => r.text())
+  .then(text => {
+    document.getElementById("pycode").textContent = text;
+    Prism.highlightAll();
+  });
+</script>
 
   <p style="margin-top:2rem;">
     <a href="https://github.com/Hannn1221/data-ml-projects" 
