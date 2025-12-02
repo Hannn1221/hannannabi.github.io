@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Equity Risk Model</title>
@@ -105,6 +110,18 @@
     These diagnostics align with the workflow used in quantitative equity, risk, and portfolio-research teams 
     when evaluating factor exposures and market sensitivity.
   </p>
+<h2>Source Code</h2>
+
+<pre><code id="pycode" class="language-python"></code></pre>
+
+<script>
+fetch("equity_risk_model_newey_west.py")  
+  .then(r => r.text())
+  .then(text => {
+    document.getElementById("pycode").textContent = text;
+    Prism.highlightAll();
+  });
+</script>
 
   <p style="margin-top:2rem;">
     <a href="https://github.com/Hannn1221/fin-models" 
